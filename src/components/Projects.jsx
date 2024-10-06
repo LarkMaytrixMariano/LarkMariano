@@ -1,6 +1,7 @@
 import React from 'react'
 import { PROJECTS } from '../constants'
 import { motion } from 'framer-motion'
+import { projectTechIcons } from '../constants'
 
 
 
@@ -31,14 +32,19 @@ const Projects = () => {
                     whileInView={{opacity: 1 , x:0 }}
                     initial={{opacity: 0 , x: 100}}
                     transition={{duration: 1}}
-                    className='w-full max-w-xl lg:w-3/4'>
+                    className='lg:block flex flex-wrap w-full max-w-xl lg:w-3/4 ml-2'>
                         <h3 className='mb-2 font-semibold text-2xl'>{project.title}</h3>
                         <p className='mb-4 text-stone-400'>{project.description}</p>
-                        {project.technologies.map((tech, index) => (
-                            <span className='mr-2 rounded bg-stone-900 p-2 text-sm font-medium text-stone-300' key={index}>
-                                {tech}
+                        {project.technologies.map((tech, index) => {
+                        // Find the icon for the technology
+                        const techIcon = projectTechIcons.find(icon => icon.label === tech || icon.label === tech.replace('.js', '')); // Handle "React.js" as "React"
+                        return (
+                            <span className='mr-2 mt-2 lg:mt-0 rounded bg-stone-900 p-2 text-sm font-medium text-stone-300' key={index}>
+                            {techIcon ? <techIcon.icon className={techIcon.className} /> : null}
+                            <span className='ml-1'>{tech}</span>
                             </span>
-                        ))}
+                        );
+                        })}
                     </motion.div>
                 </div>
             ))}

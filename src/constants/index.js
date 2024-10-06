@@ -2,13 +2,14 @@ import project1 from "../assets/projects/project-1.webp";
 import project2 from "../assets/projects/project-2.webp";
 import project3 from "../assets/projects/project-3.webp";
 import project4 from "../assets/projects/project-4.webp";
-import { FaGithub, FaInstagram, FaLinkedin, FaTwitter } from 'react-icons/fa'
+import { FaAngular, FaBootstrap, FaCss3, FaCss3Alt, FaDatabase, FaGithub, FaHtml5, FaInstagram, FaLinkedin, FaNode, FaPython, FaReact, FaSass, FaTwitter, FaVuejs } from 'react-icons/fa'
 import { BiLogoPostgresql } from 'react-icons/bi'
-import { DiRedis } from 'react-icons/di'
-import { FaDatabase, FaNodeJs } from 'react-icons/fa'
-import { RiReactjsLine } from 'react-icons/ri'
-import { SiMongodb } from 'react-icons/si'
-import { TbBrandNextjs } from 'react-icons/tb'
+import { DiFirebase, DiJavascript, DiRedis } from 'react-icons/di'
+import {  FaNodeJs } from 'react-icons/fa'
+import { RiAliensFill, RiNextjsFill, RiReactjsLine } from 'react-icons/ri'
+import { SiExpress, SiJavascript, SiMongodb, SiMysql, SiPhp, SiPostgresql, SiRuby, SiSqlite, SiSvelte } from 'react-icons/si'
+import { TbBrandNextjs, TbBrandThreejs } from 'react-icons/tb'
+import { IoLogoJavascript } from "react-icons/io";
 
 
 export const HERO_CONTENT = `I am a passionate full stack developer with a knack for crafting robust and scalable web applications. With 5 years of hands-on experience, I have honed my skills in front-end technologies like React and Next.js, as well as back-end technologies like Node.js, MySQL, PostgreSQL, and MongoDB. My goal is to leverage my expertise to create innovative solutions that drive business growth and deliver exceptional user experiences.`;
@@ -46,13 +47,41 @@ export const EXPERIENCES = [
   },
 ];
 
+export const projectTechIcons = [
+  { icon: FaHtml5, label: 'HTML', className: 'inline-block text-orange-500' },
+  { icon: FaCss3Alt, label: 'CSS', className: 'inline-block text-cyan-500' },
+  { icon: FaReact, label: 'React', className: 'inline-block text-cyan-400' },
+  { icon: FaNode, label: 'Node.js', className: 'inline-block text-green-500' },
+  { icon: SiMongodb, label: 'mongoDB', className: 'inline-block text-green-500' },
+  { icon: FaAngular, label: 'Angular', className: 'inline-block text-red-500' },
+  { icon: DiFirebase, label: 'Firebase', className: 'inline-block text-yellow-300' },
+  { icon: FaVuejs, label: 'Vue.js', className: 'inline-block text-green-500' },
+  { icon: SiExpress, label: 'Express', className: 'inline-block' },
+  { icon: SiMysql, label: 'mySQL', className: 'inline-block text-cyan-500' },
+  { icon: FaBootstrap, label: 'Bootstrap', className: 'inline-block text-violet-300' },
+  { icon: IoLogoJavascript, label: 'Javascript', className: 'inline-block text-yellow-500' },
+  { icon: RiNextjsFill, label: 'Next.js', className: 'inline-block' },
+  { icon: FaPython, label: 'Python', className: 'inline-block text-cyan-500' },
+  { icon: SiSvelte, label: 'Svelte', className: 'inline-block text-red-500' },
+  { icon: FaSass, label: 'Sass', className: 'inline-block' },
+  { icon: SiPostgresql, label: 'Postgres', className: 'inline-block text-cyan-500' },
+  { icon: SiRuby, label: 'Ruby', className: 'inline-block text-red-700' },
+  { icon: SiPhp, label: 'PHP', className: 'inline-block text-cyan-500' },
+  { icon: TbBrandThreejs, label: 'Three.js', className: 'inline-block' },
+  { icon: SiSqlite, label: 'Sqlite', className: 'inline-block text-cyan-300' },
+  { icon: RiAliensFill, label: 'Rails', className: 'inline-block text-red-500' },
+
+
+
+  // Add more icons as needed
+];
 export const PROJECTS = [
   {
     title: "E-Commerce Website",
     image: project1,
     description:
       "A fully functional e-commerce website with features like product listing, shopping cart, and user authentication.",
-    technologies: ["HTML", "CSS", "React", "Node.js", "MongoDB"],
+    technologies: ["HTML", "CSS", "React", "Node.js", "mongoDB"],
   },
   {
     title: "Task Management App",
