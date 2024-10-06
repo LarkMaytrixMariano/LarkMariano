@@ -82,6 +82,7 @@ export const PROJECTS = [
   {
     title: "Kraken Portfolio",
     image: kraken,
+    url: "https://krak3n-black.vercel.app/", // Replace with actual URL
     description:
       "A comprehensive digital marketing service that includes stunning web designs, unique graphic arts, custom stickers, engaging memes, and NFT creation to enhance your online presence and brand identity.",
     technologies: ["HTML", "CSS", "React", "Node.js", "mongoDB"],
@@ -89,6 +90,7 @@ export const PROJECTS = [
   {
     title: "My Web-3 Portfolio",
     image: web3,
+    url: "https://portfoliov2-sandy.vercel.app/", // Replace with actual URL
     description:
       "A dynamic portfolio showcasing my Web3 applications, featuring innovative blockchain solutions, decentralized applications, and NFT projects designed to redefine user experiences in the digital landscape.",
     technologies: ["HTML", "CSS", "Angular", "Firebase"],
@@ -96,6 +98,7 @@ export const PROJECTS = [
   {
     title: "HooBank Project",
     image: hoobank,
+    url: "https://hoobank-livid-pi.vercel.app/", // Replace with actual URL
     description:
       "A comprehensive showcase of my Hoobank project, demonstrating my frontend development skills through a modern, user-friendly interface that emphasizes responsive design and intuitive navigation.",
     technologies: ["HTML", "CSS", "React", "Bootstrap"],
@@ -103,6 +106,7 @@ export const PROJECTS = [
   {
     title: "BrainWave Project",
     image: brainwave,
+    url: "https://brainwave-three-khaki.vercel.app/", // Replace with actual URL
     description:
     "A practice project showcasing my Brainwave AI platform, designed to demonstrate my skills in building intelligent applications with innovative features and an intuitive user interface.",
     technologies: ["HTML", "CSS", "Vue.js", "Express", "mySQL"],
@@ -110,6 +114,7 @@ export const PROJECTS = [
   {
     title: "Fashion Sense",
     image: fashion,
+    url: "https://theofficialfashionsense.com/", // Replace with actual URL
     description:
       "A stylish online clothing store built on WordPress, showcasing my fashion sense through a curated collection of apparel that combines trend-driven designs with an intuitive shopping experience.",
     technologies: ["HTML", "CSS", "Wordpress", "mySQL"],
