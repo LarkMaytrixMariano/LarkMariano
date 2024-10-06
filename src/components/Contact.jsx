@@ -5,7 +5,7 @@ import { motion } from 'framer-motion'
 
 const Contact = () => {
   return (
-    <div className='border-t border-stone-900 pb-20'>
+    <div className='border-t border-stone-900 pb-10'>
         <motion.h2 
         whileInView={{opacity: 1 , y:0 }}
         initial={{opacity: 0 , y: -100}}
@@ -26,9 +26,10 @@ const Contact = () => {
             className='my-4'>
                 {CONTACT.phoneNo}
             </motion.p>
-            <a href='' className='border-b'>
+            <a href='https://mail.google.com/mail/u/0/#inbox?compose=DmwnWrRlRZNLRlqPkCnzpwXJZcvPrRLljbGSqVSlpNfjKSQXhxVGnthcFZqvPCCNTrqNmJqfDSrl' className='border-b'>
                 {CONTACT.email}
             </a>
+            <p className='mt-10'>&#169; 2024 LARK MARIANO | All rights reserved </p>
         </div>
     </div>
   )

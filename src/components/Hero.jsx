@@ -46,7 +46,7 @@ const Hero = () => {
                     className='flex flex-col items-center lg:items-start mt-10'>
                     <motion.h2 
                     variants={childVariants}
-                    className='pb-2 text-4xl tracking-tighter lg:text-8xl'>Lark Mariano</motion.h2>
+                    className='pb-2 text-4xl tracking-tighter lg:text-8xl font-extrabold'>Lark Mariano</motion.h2>
                     <motion.span 
                     variants={childVariants}
                     className='bg-gradient-to-r from-stone-300 to-stone-600 bg-clip-text text-3xl tracking-tight text-transparent'>Full Stack Developer</motion.span>
