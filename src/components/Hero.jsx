@@ -23,7 +23,7 @@ const childVariants = {
 
 const Hero = () => {
   return (
-    <div className='pb-4 lg:mb-36'>
+    <div className='pb-4 lg:mb-36 '>
         <div className='flex flex-wrap lg:flex-row-reverse'>
             <div className='w-full lg:w-1/2'>
                 <div className='flex justify-center lg:p-8'>
@@ -59,7 +59,7 @@ const Hero = () => {
                         target='_blank'
                         rel="noopener noreferrer"
                         download
-                        className='bg-white rounded-full text-sm p-4 text-stone-800 mb-10'
+                        className='bg-stone-900 text-white rounded-full text-sm p-4  mb-10'
                         variants={childVariants}
                     >
                         Download Resume

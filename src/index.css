@@ -29,7 +29,6 @@ body{
 }
 
 .cursor-dot {
-  background-color: white;
   height: 5px;
   width: 5px;
   position: fixed;
@@ -39,7 +38,9 @@ body{
   border-radius: 50%;
   z-index: 1;
   pointer-events: none;
+  transition: background-color 0.3s ease; /* Smooth color change */
 }
+
 
 
 .cursor-dot,

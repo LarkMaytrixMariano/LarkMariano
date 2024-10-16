@@ -4,7 +4,7 @@ import { socialLinks } from '../constants'
 
 const Navbar = () => {
   return (
-    <nav className='flex items-center justify-between py-6'>
+    <nav className='flex items-center justify-between py-6 border-red-500'>
         <div className='flex flex-shrink-0 items-center'>
             <a href="/" aria-label='Home'>
                 <h1 className='font-bold text-3xl font-serif'>LM</h1>
