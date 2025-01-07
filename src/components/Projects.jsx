@@ -69,13 +69,13 @@ const Projects = () => {
         whileInView={{ opacity: 1, y:0 }}
         initial={{ opacity: 0 , y: -100}}
         transition={{duration: 0.5 }}
-        className='mt-10 mb-10 text-center'>
+        className='mt-20 mb-10 text-center '>
         <a 
             href="https://vercel.com/larkmaytrixmarianos-projects"
             target='_blank'
-            className='rounded-full text-sm p-4 text-white underline mb-10 hover:opacity-50'
+            className='rounded-full text-sm p-4 text-white underline mb-10 hover:opacity-50 text-[28px]'
         >
-        View More on my Vercel {"->"}
+        View More Projects on my Vercel {"->"}
         </a>
         </motion.p>
     </div>

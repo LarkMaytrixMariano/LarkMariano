@@ -59,19 +59,18 @@ const App = () => {
           </div>
         )}
       </div>
-
       <div className='container mx-auto px-8'>
         <div
           className={`cursor-dot ${darkMode ? 'bg-white' : 'bg-black'}`}
           ref={cursorDotRef}
         ></div>
-<div
-  className={`cursor-outline`}
-  ref={cursorOutlineRef}
-  style={{
-    borderColor: darkMode ? 'hsla(0, 0%, 100%, 0.5)' : 'hsla(0, 0%, 0%, 0.5)',
-  }}
-></div>
+      <div
+        className={`cursor-outline`}
+        ref={cursorOutlineRef}
+        style={{
+          borderColor: darkMode ? 'hsla(0, 0%, 100%, 0.5)' : 'hsla(0, 0%, 0%, 0.5)',
+        }}
+      ></div>
         {/* Toggle button with icons */}
         <button 
           onClick={toggleTheme} 

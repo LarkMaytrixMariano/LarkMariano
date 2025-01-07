@@ -1,7 +1,8 @@
 import React from 'react'
-import profilePic from "../assets/profilePic.jpg"
 import { HERO_CONTENT } from '../constants'
 import { motion } from 'framer-motion'
+import Passport from "../assets/passport.jpg";
+
 
 const containerVariants = {
     hidden: {opacity:0, x: -100 },
@@ -27,7 +28,7 @@ const Hero = () => {
         <div className='flex flex-wrap lg:flex-row-reverse'>
             <div className='w-full lg:w-1/2'>
                 <div className='flex justify-center lg:p-8'>
-                    <motion.img src={profilePic} 
+                    <motion.img src={Passport} 
                     alt="Ravi Kumar" 
                     className='border border-stone-900 rounded-3xl' 
                     width={650}
@@ -55,7 +56,7 @@ const Hero = () => {
                     className='my-2 max-w-lg py-6 text-xl leading-relaxed tracking-tighter text-center lg:text-start'>
                         {HERO_CONTENT}
                     </motion.p>
-                    <motion.a href="/resume.pdf"
+                    <motion.a href="/Mariano_Resume.pdf"
                         target='_blank'
                         rel="noopener noreferrer"
                         download

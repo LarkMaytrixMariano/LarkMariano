@@ -53,3 +53,31 @@ body{
   z-index: 1;
   pointer-events: none;
 }
+
+/* Full Width Marquee */
+.marquee {
+  display: flex;
+  animation: marquee 20s linear infinite;
+  width: 100vw;  /* Make it span the full width of the viewport */
+  flex-shrink: 0;  /* Prevent the marquee from shrinking */
+  overflow: hidden;  /* Hide overflow content */
+}
+
+/* Add space between each icon */
+.marquee > div {
+  margin-right: 2rem;
+}
+
+@keyframes marquee {
+  0% {
+    transform: translateX(100%); /* Start off to the right of the viewport */
+  }
+  100% {
+    transform: translateX(-100%); /* Move completely off the left side */
+  }
+}
+
+/* Pause the animation when hovered */
+.marquee:hover {
+  animation-play-state: paused;
+}

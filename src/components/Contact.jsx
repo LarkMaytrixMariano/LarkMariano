@@ -14,13 +14,6 @@ const Contact = () => {
         <div className='text-center tracking-tighter'>
             <motion.p 
             whileInView={{opacity: 1 , x:0 }}
-            initial={{opacity: 0 , x: -100}}
-            transition={{duration: 1}}                 
-            className='my-4'>
-                    {CONTACT.address}
-            </motion.p>
-            <motion.p 
-            whileInView={{opacity: 1 , x:0 }}
             initial={{opacity: 0 , x: 100}}
             transition={{duration: 1}}                 
             className='my-4'>
@@ -29,7 +22,14 @@ const Contact = () => {
             <a href='https://mail.google.com/mail/u/0/#inbox?compose=DmwnWrRlRZNLRlqPkCnzpwXJZcvPrRLljbGSqVSlpNfjKSQXhxVGnthcFZqvPCCNTrqNmJqfDSrl' className='border-b'>
                 {CONTACT.email}
             </a>
-            <p className='mt-10'>&#169; 2024 LARK MARIANO | All rights reserved </p>
+            <motion.p 
+            whileInView={{opacity: 1 , x:0 }}
+            initial={{opacity: 0 , x: -100}}
+            transition={{duration: 1}}                 
+            className='my-4'>
+                    {CONTACT.address}
+            </motion.p>
+            <p className='mt-10'>&#169; 2025 LARK MARIANO | All rights reserved </p>
         </div>
     </div>
   )
