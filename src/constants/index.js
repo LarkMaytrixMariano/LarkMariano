@@ -1,12 +1,9 @@
-import project1 from "../assets/projects/project-1.webp";
-import project2 from "../assets/projects/project-2.webp";
-import project3 from "../assets/projects/project-3.webp";
-import project4 from "../assets/projects/project-4.webp";
 import kraken from "../assets/projects/kraken.png";
 import web3 from "../assets/projects/web3.png";
 import IkaProject from "../assets/projects/IkaProject.png";
 import brainwave from "../assets/projects/brainwave.png";
 import fashion from "../assets/projects/fashion.png";
+import krypt from "../assets/projects/krypt.png";
 
 
 import { FaAngular, FaBootstrap, FaCss3, FaCss3Alt, FaDatabase, FaFacebook, FaGithub, FaHtml5, FaInstagram, FaJava, FaLinkedin, FaNode, FaPython, FaReact, FaSass, FaTwitter, FaVuejs, FaWordpress } from 'react-icons/fa'
@@ -76,6 +73,8 @@ export const projectTechIcons = [
   { icon: SiTypescript, label: 'Typescript', className: 'inline-block text-cyan-500' },
   { icon: SiSpringboot, label: 'Springboot', className: 'inline-block text-green-500' },
   { icon: FaWordpress, label: 'Wordpress', className: 'inline-block text-cyan-500' },
+  { icon: SiVite, label: 'Vite', className: 'inline-block text-purple-500' },
+
 
 
   // Add more icons as needed
@@ -120,6 +119,14 @@ export const PROJECTS = [
     description:
     "A practice project showcasing my Brainwave AI platform, designed to demonstrate my skills in building intelligent applications with innovative features and an intuitive user interface.",
     technologies: ["HTML", "CSS", "Vue.js", "Express", "mySQL"],
+  },
+  {
+    title: "Krypt Project",
+    image: krypt,
+    url: "https://web3-ojh2-3ndmwdpbc-larkmaytrixmarianos-projects.vercel.app/", // Replace with actual URL
+    description:
+    "A web-3 Project used for transferring Ethereum. Explore the crypto world. Buy and sell cryptocurrencies easily on Krypto.",
+    technologies: ["HTML", "CSS", "Vite", "Express", "mySQL"],
   },
 ];
 
