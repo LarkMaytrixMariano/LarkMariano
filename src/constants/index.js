@@ -4,45 +4,132 @@ import IkaProject from "../assets/projects/IkaProject.png";
 import brainwave from "../assets/projects/brainwave.png";
 import fashion from "../assets/projects/fashion.png";
 import krypt from "../assets/projects/krypt.png";
+import goodchips from "../assets/projects/goodchips.png";
+import cert1 from "../assets/certifications/certification1.png";
+import cert2 from "../assets/certifications/certification2.png";
+import cert3 from "../assets/certifications/certification3.png";
+import cert4 from "../assets/certifications/certification4.png";
+import cert5 from "../assets/certifications/certification5.png";
+import cert6 from "../assets/certifications/certification6.png";
+import cert7 from "../assets/certifications/certification7.png";
 
 
-import { FaAngular, FaBootstrap, FaCss3, FaCss3Alt, FaDatabase, FaFacebook, FaGithub, FaHtml5, FaInstagram, FaJava, FaLinkedin, FaNode, FaPython, FaReact, FaSass, FaTwitter, FaVuejs, FaWordpress } from 'react-icons/fa'
+
+import { FaAngular, FaBootstrap, FaCss3, FaCss3Alt, FaDatabase, FaFacebook, FaGithub, FaHtml5, FaInstagram, FaJava, FaLinkedin, FaNode, FaPhp, FaPython, FaReact, FaSass, FaShopify, FaTwitter, FaVuejs, FaWordpress } from 'react-icons/fa'
 import { BiLogoPostgresql } from 'react-icons/bi'
 import { DiFirebase, DiJavascript, DiRedis } from 'react-icons/di'
 import {  FaNodeJs } from 'react-icons/fa'
 import { RiAliensFill, RiNextjsFill, RiReactjsLine } from 'react-icons/ri'
-import { SiExpress, SiJavascript, SiMongodb, SiMysql, SiPhp, SiPostgresql, SiRuby, SiSpringboot, SiSqlite, SiSvelte, SiTailwindcss, SiTypescript, SiVite } from 'react-icons/si'
+import { SiExpress, SiJavascript, SiMongodb, SiMysql, SiOracle, SiPhp, SiPostgresql, SiRuby, SiShopify, SiSpringboot, SiSqlite, SiSvelte, SiTailwindcss, SiTypescript, SiVite } from 'react-icons/si'
 import { TbBrandNextjs, TbBrandThreejs } from 'react-icons/tb'
 import { IoLogoJavascript } from "react-icons/io";
 import { BsBootstrap } from "react-icons/bs";
 import { CgVercel } from "react-icons/cg";
+import { GrOracle } from "react-icons/gr";
 
 
-export const HERO_CONTENT = `I am an expert Full-Stack Developer with 3+ years of experience crafting scalable web applications and mobile solutions. My expertise spans a wide range of technologies, including React, Next.js, and Angular for dynamic front-end development, as well as React Native for building seamless mobile apps. On the back-end, I excel in Node.js and Spring Boot, and I am highly proficient in databases such as MySQL, PostgreSQL, and MongoDB. With a passion for creating innovative, high-performance solutions, I deliver exceptional user experiences and drive business growth through cutting-edge technologies.`;
+export const HERO_CONTENT = `Results-driven Java Developer / Software Engineer with more than 5 years of experience in designing, developing, and maintaining scalable applications. Skilled in Java, Spring Boot, REST APIs, Microservices, and SQL/NoSQL databases. Experienced in full software development lifecycle (SDLC), system optimization, and delivering secure, high-performance solutions. Adept at collaborating with cross-functional teams and contributing to both backend and frontend development (ReactJS/Angular).`;
 
 export const ABOUT_TEXT = `I am a dedicated and versatile full stack developer with a passion for creating efficient and user-friendly web applications. With 5 years of professional experience, I have worked with a variety of technologies, including React, Next.js, Node.js, MySQL, PostgreSQL, and MongoDB. My journey in web development began with a deep curiosity for how things work, and it has evolved into a career where I continuously strive to learn and adapt to new challenges. I thrive in collaborative environments and enjoy solving complex problems to deliver high-quality solutions. Outside of coding, I enjoy staying active, exploring new technologies, and contributing to open-source projects.`;
+
+export const CERTIFICATIONS = [
+  {
+    title: "Full Stack Web Development Course",
+    image: cert1,
+    url: "https://lark-mariano.vercel.app/", // Link to PDF or certificate page
+    issuer: "Swiss IT Academy",
+    date: "September 25, 2023 - October 10, 2023",
+    description: "Comprehensive full stack web development course covering front-end and back-end technologies, database management, and deployment strategies.",
+    skills: ["HTML5", "CSS3", "JavaScript", "Bootstrap","Php","mySQL"],
+  },
+  {
+    title: "Advance Python Programming",
+    image: cert2,
+    url: "https://lark-mariano.vercel.app/", // Link to PDF or certificate page
+    issuer: "Active Learning Inc.",
+    date: "March 11, 2024 - March 13, 2024",
+    description: "Advanced Python programming concepts and techniques.",
+    skills: ["Python"],
+  },
+    {
+    title: "The Nature of Data and Relational Database Design",
+    image: cert3,
+    url: "https://lark-mariano.vercel.app/", // Link to PDF or certificate page
+    issuer: "Bureau of Fisheries and Aquatic Resources",
+    date: "May 12, 2025 - May 16, 2025",
+    description: "Understanding data structures and relational database design principles.",
+    skills: ["mySQL", "Oracle", "Database"],
+  },
+    {
+    title: "Dashboarding With Topics on Data Processing and Visualization",
+    image: cert4,
+    url: "https://lark-mariano.vercel.app/", // Link to PDF or certificate page
+    issuer: "Trainosys Inc.",
+    date: "March 24, 2025 - March 28, 2025",
+    description: "Dashboarding techniques and best practices for data visualization.",
+    skills: ["Python", "PowerBI"],
+  },
+    {
+    title: "ICT Training (Office Productivity Tools)",
+    image: cert5,
+    url: "https://lark-mariano.vercel.app/", // Link to PDF or certificate page
+    issuer: "Department of Agriculture",
+    date: "August 27, 2025 - August 29, 2025",
+    description: "Comprehensive training on office productivity tools and software.",
+    skills: ["Ms Office Tools"],
+  },
+    {
+    title: "Mastering Hybrid Records Management System",
+    image: cert6,
+    url: "https://lark-mariano.vercel.app/", // Link to PDF or certificate page
+    issuer: "Government Records Officers Association of the Philippines",
+    date: "September 23, 2025 - September 25, 2025",
+    description: "In-depth training on hybrid records management systems and best practices.",
+    skills: ["Database", "Digitalization", "Records Management"],
+  },
+    {
+    title: "Data Automation and Reporting with Visualization using Power BI",
+    image: cert7,
+    url: "https://lark-mariano.vercel.app/", // Link to PDF or certificate page
+    issuer: "Premier Value Provider INC.",
+    date: "April 24, 2024 - April 26, 2024",
+    description: "Advanced data automation and reporting techniques using Power BI.",
+    skills: ["Power BI", "Data Visualization", "Reporting"],
+  },
+];
 
 export const EXPERIENCES = [
   {
     year: "2022 - Present",
-    role: "Full Stack Developer",
+    role: "Full Stack Java Developer",
     company: "Bureau of Fisheries and Aquatic Resources",
-    description: `Led a team in developing and maintaining web applications using Typescript, Angular.js, Bootstrap and Springboot. Implemented RESTful APIs and integrated with MySql databases. Collaborated with stakeholders to define project requirements and timelines.`,
+    description: `* Designed and developed RESTful APIs using Spring Boot and
+ Hibernate, improving system response time.
+ * Built and maintained microservices architecture for scalable
+ enterprise applications.
+ * Integrated JWT-based authentication & authorization for secure user
+ access.
+ * Developed frontend features with ReactJS/AngularJS, improving user
+ experience and reducing bugs.
+ * Collaborated with cross-functional teams in an Agile/Scrum
+ environment, delivering features on-time and within scope.
+ Optimized SQL queries and database indexing, improving data
+ retrieval speed.`,
     technologies: ["Typescript", "Angular", "Java", "mySQL", "Springboot"],
   },
   {
     year: "2020 - 2022",
-    role: "I.T Specialist/Network Administrator",
+    role: "Database Administrator / IT Specialist",
     company: "Land Transportation Office",
-    description: "As an IT Specialist and Network Administrator at the Land Transportation Office in the Philippines, I was responsible for overseeing network infrastructure, ensuring system security, and providing technical support to enhance operational efficiency and service delivery.",
-    technologies: ["Python", "Svelte", "Three.js", "Postgres"],
+    description: "* Managed and optimized MySQL/Oracle databases ensuring high availability, backup, and disaster recovery strategies. * Designed and implemented database schemas, stored procedures, and triggers to support internal and public-facing applications. * Monitored and tuned database performance, reducing query execution time. * Ensured data integrity and security in compliance with government IT policies.",
+    technologies: ["mySQL", "Oracle", "Python", "Firebase"],
   },
   {
     year: "2019-2020",
     role: "I.T Specialist",
     company: "Commonwealth Hospital & Medical Center",
-    description: "As an IT Specialist at a hospital, I played a crucial role in managing and maintaining healthcare technology systems, ensuring optimal performance and reliability to support patient care and streamline operations.",
-    technologies: ["Ruby", "Rails", "PHP", "Sqlite"],
+    description: "* Administered and maintained hospital information system (HIS)databases to ensure reliability and security of medical records. * Performed data backups, recovery, and migration to minimize downtime and data loss. * Monitored and optimized SQL queries for better performance in reporting and patient information systems. * Provided support for database-related issues and collaborated with developers for system enhancements",
+    technologies: ["mySQL", "Oracle", "PHP", "Sqlite"],
   },
 ];
 
@@ -74,6 +161,8 @@ export const projectTechIcons = [
   { icon: SiSpringboot, label: 'Springboot', className: 'inline-block text-green-500' },
   { icon: FaWordpress, label: 'Wordpress', className: 'inline-block text-cyan-500' },
   { icon: SiVite, label: 'Vite', className: 'inline-block text-purple-500' },
+  { icon: SiOracle, label: 'Oracle', className: 'inline-block text-red-500' },
+  { icon: SiShopify, label: 'Shopify', className: 'inline-block text-green-500' },
 
 
 
@@ -83,7 +172,7 @@ export const PROJECTS = [
   {
     title: "Kraken Portfolio",
     image: kraken,
-    url: "https://krakengfx.xyz/", // Replace with actual URL
+    url: "https://kraken12345.vercel.app/", // Replace with actual URL
     description:
       "A comprehensive digital marketing service that includes stunning web designs, unique graphic arts, custom stickers, engaging memes, and NFT creation to enhance your online presence and brand identity.",
     technologies: ["HTML", "CSS", "React", "Node.js", "mongoDB"],
@@ -127,6 +216,14 @@ export const PROJECTS = [
     description:
     "A web-3 Project used for transferring Ethereum. Explore the crypto world. Buy and sell cryptocurrencies easily on Krypto.",
     technologies: ["HTML", "CSS", "Vite", "Express", "mySQL"],
+  },
+    {
+    title: "Good Chips Website",
+    image: goodchips,
+    url: "https://buygoodchips.com/", // Replace with actual URL
+    description:
+    "Developed a sleek, responsive e-commerce and Web3-integrated website for GoodChips, the premium brand offering healthy, nutritious chips. This project showcases my capability in merging modern front-end design with blockchain utility.",
+    technologies: ["HTML", "CSS", "Shopify"],
   },
 ];
 
@@ -192,4 +289,8 @@ export const techIcons = [
   { id: 14, icon: CgVercel, label: 'Vercel', className: 'text-7xl text-black-500', variants: createIconVariants(1.5, 15) },
   { id: 15, icon: FaGithub, label: 'Github', className: 'text-7xl text-black-500', variants: createIconVariants(2, 15) },
   { id: 16, icon: FaPython, label: 'Python', className: 'text-7xl text-cyan-500', variants: createIconVariants(3, 15) },
+  { id: 17, icon: SiSpringboot, label: 'Spring Boot', className: 'text-7xl text-green-500', variants: createIconVariants(3, 10) },
+  { id: 18, icon: FaPhp, label: 'PHP', className: 'text-7xl text-blue-500', variants: createIconVariants(1.5, 15) },
+  { id: 19, icon: GrOracle, label: 'Oracle', className: 'text-7xl text-orange-500', variants: createIconVariants(3, 10) },
+  { id: 20, icon: FaShopify, label: 'Shopify', className: 'text-7xl text-green-500', variants: createIconVariants(2.5, 15) },
 ];

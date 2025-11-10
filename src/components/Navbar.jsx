@@ -1,5 +1,4 @@
 import React from 'react'
-import logo from '../assets/raviKumarLogo.webp'
 import { socialLinks } from '../constants'
 
 const Navbar = () => {

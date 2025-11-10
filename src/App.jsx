@@ -6,7 +6,7 @@ import Experience from './components/Experience';
 import Contact from './components/Contact';
 import React, { useEffect, useRef, useState } from 'react';
 import { FiSun, FiMoon } from 'react-icons/fi'; // Import the icons
-
+import Certification from './components/Certification';
 
 const App = () => {
   const cursorDotRef = useRef(null);
@@ -81,11 +81,12 @@ const App = () => {
         </button>
 
         <Navbar />
-        <Hero />
-        <Technologies />
-        <Projects />
-        <Experience />
-        <Contact />
+        <Hero darkMode={darkMode} />
+        <Technologies darkMode={darkMode} />
+        <Projects darkMode={darkMode} />
+        <Experience darkMode={darkMode} />
+        <Certification darkMode={darkMode}/>
+        <Contact darkMode={darkMode} />
       </div>
     </div>
   );
