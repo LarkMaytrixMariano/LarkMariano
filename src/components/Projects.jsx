@@ -1,34 +1,50 @@
-import React, { useState, useRef, useEffect } from 'react';
+import React, { useState, useRef } from 'react';
 import { PROJECTS, projectTechIcons } from '../constants';
-import { motion } from 'framer-motion';
+import { motion, useMotionValue, useAnimationFrame, useTransform } from 'framer-motion';
 
 const Projects = () => {
   const [hoveredIndex, setHoveredIndex] = useState(null);
   const [isPaused, setIsPaused] = useState(false);
   const carouselRef = useRef(null);
-  const [offset, setOffset] = useState(0);
+  
+  // High-performance motion value for the X position
+  const x = useMotionValue(0);
 
-  const scrollSpeed = 0.5; // pixels per frame
+  // Auto-scroll speed (negative moves it to the left)
+  const scrollSpeed = -0.6;
 
-  // Infinite scroll loop
-  useEffect(() => {
-    let animationFrame;
+  useAnimationFrame(() => {
+    if (!isPaused && carouselRef.current) {
+      const contentWidth = carouselRef.current.scrollWidth;
+      const halfWidth = contentWidth / 2;
+      
+      let newX = x.get() + scrollSpeed;
 
-    const animate = () => {
-      if (!isPaused && carouselRef.current) {
-        const scrollWidth = carouselRef.current.scrollWidth / 2;
-        let newOffset = offset + scrollSpeed;
-        if (newOffset >= scrollWidth) {
-          newOffset = 0;
-        }
-        setOffset(newOffset);
+      // Infinite loop: If we scroll past the first half, reset to 0
+      if (newX <= -halfWidth) {
+        newX = 0;
+      } else if (newX > 0) {
+        // If user drags it too far right, snap to the middle point
+        newX = -halfWidth;
       }
-      animationFrame = requestAnimationFrame(animate);
-    };
+      
+      x.set(newX);
+    }
+  });
 
-    animationFrame = requestAnimationFrame(animate);
-    return () => cancelAnimationFrame(animationFrame);
-  }, [offset, isPaused]);
+  // Handle snapping back if the user drags it way out of bounds
+  const handleDragEnd = (_, info) => {
+    setIsPaused(false);
+    const contentWidth = carouselRef.current.scrollWidth;
+    const halfWidth = contentWidth / 2;
+    const currentX = x.get();
+
+    if (currentX <= -halfWidth) {
+      x.set(currentX + halfWidth);
+    } else if (currentX > 0) {
+      x.set(currentX - halfWidth);
+    }
+  };
 
   // Duplicate projects for seamless loop
   const displayedProjects = [...PROJECTS, ...PROJECTS];
@@ -44,32 +60,45 @@ const Projects = () => {
         Projects
       </motion.h2>
 
-      <div className="overflow-hidden relative">
+      <div className="overflow-hidden relative px-4">
         <motion.div
           ref={carouselRef}
-          className="flex gap-8 select-none"
-          style={{ transform: `translateX(-${offset}px)` }}
+          drag="x"
+          style={{ x }}
+          // dragConstraints allows movement, but dragElastic allows "pulling" past the edge
+          dragConstraints={{ left: -5000, right: 5000 }} 
+          dragElastic={0.05}
+          // dragTransition enables the "flick" momentum effect
+          dragTransition={{ bounceStiffness: 600, bounceDukping: 20 }}
+          onDragStart={() => setIsPaused(true)}
+          onDragEnd={handleDragEnd}
+          className="flex gap-8 select-none cursor-grab active:cursor-grabbing"
         >
           {displayedProjects.map((project, index) => (
             <div
               key={index}
-              className="flex-shrink-0 w-[300px] lg:w-[350px] cursor-pointer"
-              onMouseEnter={() => { setHoveredIndex(index); setIsPaused(true); }}
-              onMouseLeave={() => { setHoveredIndex(null); setIsPaused(false); }}
-              onClick={() => window.open(project.url, '_blank')} // <-- open project link
+              className="flex-shrink-0 w-[300px] lg:w-[350px]"
+              onMouseEnter={() => setIsPaused(true)}
+              onMouseLeave={() => setIsPaused(false)}
             >
-              <div className="relative">
+              <div 
+                className="relative cursor-pointer group" 
+                onClick={() => window.open(project.url, '_blank')}
+                onMouseEnter={() => setHoveredIndex(index)}
+                onMouseLeave={() => setHoveredIndex(null)}
+              >
                 <img
                   src={project.image}
-                  width={350}
-                  height={200}
                   alt={project.title}
-                  className={`rounded-lg transition duration-300 ${hoveredIndex === index ? 'filter blur-sm' : ''}`}
+                  className={`rounded-lg transition duration-300 pointer-events-none ${
+                    hoveredIndex === index ? 'filter blur-sm scale-105' : ''
+                  }`}
                   style={{ objectFit: 'cover', width: '100%', height: '200px' }}
+                  draggable="false"
                 />
                 {hoveredIndex === index && (
-                  <div className="absolute inset-0 flex items-center justify-center bg-black bg-opacity-50 text-white text-lg rounded-lg">
-                    <p>View Website</p>
+                  <div className="absolute inset-0 flex items-center justify-center bg-black/50 text-white text-lg rounded-lg transition-opacity">
+                    <p className="font-medium">View Website</p>
                   </div>
                 )}
               </div>
@@ -77,7 +106,7 @@ const Projects = () => {
               <div className="mt-4 flex flex-col justify-between h-[220px]">
                 <div>
                   <h3 className="font-semibold text-xl">{project.title}</h3>
-                  <p className="text-stone-400 text-sm mt-1">{project.description}</p>
+                  <p className="text-stone-400 text-sm mt-1 line-clamp-3">{project.description}</p>
                 </div>
                 <div className="flex flex-wrap gap-2 mt-2">
                   {project.technologies.map((tech, techIndex) => {
@@ -111,7 +140,7 @@ const Projects = () => {
           href="https://vercel.com/larkmaytrixmarianos-projects"
           target="_blank"
           rel="noopener noreferrer"
-          className="rounded-full text-sm p-4 text-white underline hover:opacity-70 text-[28px]"
+          className="rounded-full text-sm p-4 text-white underline hover:text-stone-400 transition-colors text-[24px] lg:text-[28px]"
         >
           View More Projects on my Vercel {"->"}
         </a>
