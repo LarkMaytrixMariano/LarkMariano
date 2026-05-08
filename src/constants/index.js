@@ -15,17 +15,20 @@ import cert7 from "../assets/certifications/certification7.png";
 
 
 
-import { FaAngular, FaBootstrap, FaCss3, FaCss3Alt, FaDatabase, FaFacebook, FaGithub, FaHtml5, FaInstagram, FaJava, FaLinkedin, FaNode, FaPhp, FaPython, FaReact, FaSass, FaShopify, FaTwitter, FaVuejs, FaWordpress } from 'react-icons/fa'
+import { FaAngular, FaBootstrap, FaCss3, FaCss3Alt, FaDatabase, FaFacebook, FaGit, FaGithub, FaGitlab, FaHtml5, FaInstagram, FaJava, FaLinkedin, FaLock, FaNode, FaPhp, FaPython, FaReact, FaSass, FaServer, FaShopify, FaTwitter, FaVuejs, FaWordpress } from 'react-icons/fa'
 import { BiLogoPostgresql } from 'react-icons/bi'
-import { DiFirebase, DiJavascript, DiRedis } from 'react-icons/di'
+import { DiDatabase, DiFirebase, DiJavascript, DiRedis } from 'react-icons/di'
 import {  FaNodeJs } from 'react-icons/fa'
 import { RiAliensFill, RiNextjsFill, RiReactjsLine } from 'react-icons/ri'
-import { SiExpress, SiJavascript, SiMongodb, SiMysql, SiOracle, SiPhp, SiPostgresql, SiRuby, SiShopify, SiSpringboot, SiSqlite, SiSvelte, SiTailwindcss, SiTypescript, SiVite } from 'react-icons/si'
+import { SiApifox, SiExpress, SiJavascript, SiJenkins, SiMongodb, SiMysql, SiOracle, SiPhp, SiPostgresql, SiRuby, SiShopify, SiSpringboot, SiSqlite, SiSvelte, SiTailwindcss, SiTypescript, SiVite } from 'react-icons/si'
 import { TbBrandNextjs, TbBrandThreejs } from 'react-icons/tb'
 import { IoLogoJavascript } from "react-icons/io";
 import { BsBootstrap } from "react-icons/bs";
 import { CgVercel } from "react-icons/cg";
 import { GrOracle } from "react-icons/gr";
+import { LuWorkflow } from "react-icons/lu";
+import { AiOutlineApi } from "react-icons/ai";
+import { FiDatabase } from "react-icons/fi";
 
 
 export const HERO_CONTENT = `Results-driven Java Developer / Software Engineer with more than 5 years of experience in designing, developing, and maintaining scalable applications. Skilled in Java, Spring Boot, REST APIs, Microservices, and SQL/NoSQL databases. Experienced in full software development lifecycle (SDLC), system optimization, and delivering secure, high-performance solutions. Adept at collaborating with cross-functional teams and contributing to both backend and frontend development (ReactJS/Angular).`;
@@ -100,36 +103,95 @@ export const CERTIFICATIONS = [
 
 export const EXPERIENCES = [
   {
-    year: "2022 - Present",
+    year: "2026 - Present",
+    role: "Java Application Developer",
+    company: "IBM Solutions Delivery Inc.",
+    description: `* Develop, enhance, and maintain enterprise applications using Java and related frameworks.
+* Design and implement RESTful APIs for seamless system integration.
+* Collaborate with QA, UI/UX, and DevOps teams to deliver high-quality software solutions.
+* Analyze business requirements and translate them into technical specifications.
+* Perform debugging, troubleshooting, and performance optimization of applications.
+* Write clean, scalable, and maintainable code following industry best practices.
+* Participate in code reviews to ensure code quality and maintainability.
+* Integrate applications with MySQL and other relational databases.
+* Support deployment processes and assist in CI/CD pipeline activities.
+* Ensure application security and data protection standards are followed.`,
+    technologies: [
+      "Java",
+      "Spring Boot",
+      "REST API",
+      "MySQL",
+      "JDBC",
+      "Git",
+      "GitHub",
+      "CI/CD",
+      "Jenkins",
+    ],
+  },
+  {
+    year: "2023 - 2026",
     role: "Full Stack Java Developer",
     company: "Bureau of Fisheries and Aquatic Resources",
-    description: `* Designed and developed RESTful APIs using Spring Boot and
- Hibernate, improving system response time.
- * Built and maintained microservices architecture for scalable
- enterprise applications.
- * Integrated JWT-based authentication & authorization for secure user
- access.
- * Developed frontend features with ReactJS/AngularJS, improving user
- experience and reducing bugs.
- * Collaborated with cross-functional teams in an Agile/Scrum
- environment, delivering features on-time and within scope.
- Optimized SQL queries and database indexing, improving data
- retrieval speed.`,
-    technologies: ["Typescript", "Angular", "Java", "mySQL", "Springboot"],
+    description: `* Developed and maintained RESTful APIs using Spring Boot.
+* Implemented JWT authentication, security filters, and role-based access controls.
+* Utilized Spring Data JPA for ORM and relational database interactions.
+* Applied Service-Repository design patterns and OOP best practices.
+* Performed code optimization, debugging, and refactoring for scalability and performance.
+* Built custom exception handling, response wrappers, and utility classes.
+* Collaborated with frontend developers using Angular for UI integration.
+* Assisted in debugging UI/API integration issues and improving UX performance.
+* Used Git/GitHub for version control, pull requests, and conflict resolution.
+* Participated in CI/CD practices and deployment processes.
+* Developed Monitoring and E-Planning Management System.
+* Developed Fisheries Intra Network Database System (FINDS).
+* Performed maintenance and enhancement of existing systems.`,
+    technologies: [
+      "Java",
+      "Spring Boot",
+      "Spring Security",
+      "JWT",
+      "Spring Data JPA",
+      "Angular",
+      "TypeScript",
+      "MySQL",
+      "Git",
+      "GitHub",
+      "Jenkins",
+    ],
   },
   {
-    year: "2020 - 2022",
-    role: "Database Administrator / IT Specialist",
+    year: "2020 - 2023",
+    role: "Database Administrator",
     company: "Land Transportation Office",
-    description: "* Managed and optimized MySQL/Oracle databases ensuring high availability, backup, and disaster recovery strategies. * Designed and implemented database schemas, stored procedures, and triggers to support internal and public-facing applications. * Monitored and tuned database performance, reducing query execution time. * Ensured data integrity and security in compliance with government IT policies.",
-    technologies: ["mySQL", "Oracle", "Python", "Firebase"],
+    description: `* Managed and optimized MySQL/Oracle databases ensuring high availability, backup, and disaster recovery strategies.
+* Designed and implemented database schemas, stored procedures, and triggers.
+* Monitored and tuned database performance, reducing query execution time.
+* Ensured data integrity and security in compliance with government IT policies.
+* Performed IT-related tasks including site inspections, trainings, and nationwide system installations.
+* Assisted in various technical and operational support tasks assigned by the Management Information Division.`,
+    technologies: [
+      "MySQL",
+      "Oracle",
+      "SQL",
+      "Database Administration",
+      "Python",
+      "Firebase",
+    ],
   },
   {
-    year: "2019-2020",
-    role: "I.T Specialist",
-    company: "Commonwealth Hospital & Medical Center",
-    description: "* Administered and maintained hospital information system (HIS)databases to ensure reliability and security of medical records. * Performed data backups, recovery, and migration to minimize downtime and data loss. * Monitored and optimized SQL queries for better performance in reporting and patient information systems. * Provided support for database-related issues and collaborated with developers for system enhancements",
-    technologies: ["mySQL", "Oracle", "PHP", "Sqlite"],
+    year: "2019 - 2020",
+    role: "Database Administrator",
+    company: "Commonwealth Hospital and Medical Center",
+    description: `* Administered and maintained hospital information system (HIS) databases to ensure reliability and security of medical records.
+* Provided support for database-related issues and collaborated with developers for system enhancements.
+* Assisted with other technical and IT-related tasks as assigned.`,
+    technologies: [
+      "MySQL",
+      "Oracle",
+      "SQL",
+      "PHP",
+      "SQLite",
+    ],
   },
 ];
 
@@ -158,11 +220,22 @@ export const projectTechIcons = [
   { icon: RiAliensFill, label: 'Rails', className: 'inline-block text-red-500' },
   { icon: FaJava, label: 'Java', className: 'inline-block text-white-500' },
   { icon: SiTypescript, label: 'Typescript', className: 'inline-block text-cyan-500' },
-  { icon: SiSpringboot, label: 'Springboot', className: 'inline-block text-green-500' },
+  { icon: SiSpringboot, label: 'Spring Boot', className: 'inline-block text-green-500' },
   { icon: FaWordpress, label: 'Wordpress', className: 'inline-block text-cyan-500' },
   { icon: SiVite, label: 'Vite', className: 'inline-block text-purple-500' },
   { icon: SiOracle, label: 'Oracle', className: 'inline-block text-red-500' },
   { icon: SiShopify, label: 'Shopify', className: 'inline-block text-green-500' },
+  { icon: SiMysql, label: 'MySQL', className: 'inline-block text-cyan-500' },
+  { icon: FaJava, label: 'JDBC', className: 'inline-block text-white-500' },
+  { icon: FaGitlab, label: 'Git', className: 'inline-block text-orange-500' },
+  { icon: FaGithub, label: 'GitHub', className: 'inline-block text-black-500' },
+  { icon: LuWorkflow , label: 'CI/CD', className: 'inline-block text-black-500' },
+  { icon: AiOutlineApi , label: 'REST API', className: 'inline-block text-black-500' },
+  { icon: SiJenkins , label: 'Jenkins', className: 'inline-block text-black-500' },
+  { icon: SiTypescript , label: 'TypeScript', className: 'inline-block text-cyan-500' },
+  { icon: FaLock , label: 'JWT', className: 'inline-block text-black-500' },
+  { icon: DiDatabase , label: 'Spring Data JPA', className: 'inline-block text-cyan-500' },
+  { icon: FiDatabase , label: 'Database Administration', className: 'inline-block text-cyan-500' },
 
 
 

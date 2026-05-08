@@ -56,7 +56,7 @@ const Hero = ({ darkMode }) => {
                     className='my-2 max-w-lg py-6 text-xl leading-relaxed tracking-tighter text-center lg:text-start'>
                         {HERO_CONTENT}
                     </motion.p>
-                    <motion.a href="/Mariano_CV.pdf"
+                    <motion.a href="/LARK_MARIANO_CV.pdf"
                         target='_blank'
                         rel="noopener noreferrer"
                         download
