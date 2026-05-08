@@ -5,6 +5,8 @@ import brainwave from "../assets/projects/brainwave.png";
 import fashion from "../assets/projects/fashion.png";
 import krypt from "../assets/projects/krypt.png";
 import goodchips from "../assets/projects/goodchips.png";
+import POS from "../assets/projects/POS.png";
+import Flow from "../assets/projects/Pocket.png";
 import cert1 from "../assets/certifications/certification1.png";
 import cert2 from "../assets/certifications/certification2.png";
 import cert3 from "../assets/certifications/certification3.png";
@@ -20,7 +22,7 @@ import { BiLogoPostgresql } from 'react-icons/bi'
 import { DiDatabase, DiFirebase, DiJavascript, DiRedis } from 'react-icons/di'
 import {  FaNodeJs } from 'react-icons/fa'
 import { RiAliensFill, RiNextjsFill, RiReactjsLine } from 'react-icons/ri'
-import { SiApifox, SiExpress, SiJavascript, SiJenkins, SiMongodb, SiMysql, SiOracle, SiPhp, SiPostgresql, SiRuby, SiShopify, SiSpringboot, SiSqlite, SiSvelte, SiTailwindcss, SiTypescript, SiVite } from 'react-icons/si'
+import { SiApifox, SiExpress, SiJavascript, SiJenkins, SiMongodb, SiMysql, SiOracle, SiPhp, SiPostgresql, SiRuby, SiShopify, SiSpringboot, SiSqlite, SiSupabase, SiSvelte, SiTailwindcss, SiTypescript, SiVercel, SiVite } from 'react-icons/si'
 import { TbBrandNextjs, TbBrandThreejs } from 'react-icons/tb'
 import { IoLogoJavascript } from "react-icons/io";
 import { BsBootstrap } from "react-icons/bs";
@@ -236,7 +238,8 @@ export const projectTechIcons = [
   { icon: FaLock , label: 'JWT', className: 'inline-block text-black-500' },
   { icon: DiDatabase , label: 'Spring Data JPA', className: 'inline-block text-cyan-500' },
   { icon: FiDatabase , label: 'Database Administration', className: 'inline-block text-cyan-500' },
-
+  { icon: SiSupabase , label: 'Supabase', className: 'inline-block text-green-500' },
+ { icon: SiVercel , label: 'Vercel', className: 'inline-block text-black-500' },
 
 
   // Add more icons as needed
@@ -297,6 +300,22 @@ export const PROJECTS = [
     description:
     "Developed a sleek, responsive e-commerce and Web3-integrated website for GoodChips, the premium brand offering healthy, nutritious chips. This project showcases my capability in merging modern front-end design with blockchain utility.",
     technologies: ["HTML", "CSS", "Shopify"],
+  },
+      {
+    title: "Pos System for Majes Tea Blend",
+    image: POS,
+    url: "https://majes-tea-blend-pos.vercel.app/", // Replace with actual URL
+    description:
+    "A sleek, responsive Point of Sale (POS) system designed for Majes Tea Blend, a local tea shop. This project demonstrates my ability to create efficient and user-friendly interfaces for retail operations, streamlining sales processes and enhancing customer experience.",
+    technologies: ["React", "Tailwind", "Node.js", "Supabase", "Vercel"],
+  },
+        {
+    title: "Budget Flow - Personal Finance Management App",
+    image: Flow,
+    url: "https://pocket-glide.vercel.app/", // Replace with actual URL
+    description:
+    "Budget Flow is a sleek, responsive personal finance management application designed to help users track their expenses, set budgets, and achieve their financial goals. This project showcases my ability to create intuitive interfaces and integrate modern technologies for a seamless user experience.",
+    technologies: ["React", "Tailwind", "Node.js", "Supabase", "Vercel"],
   },
 ];
 
@@ -366,4 +385,5 @@ export const techIcons = [
   { id: 18, icon: FaPhp, label: 'PHP', className: 'text-7xl text-blue-500', variants: createIconVariants(1.5, 15) },
   { id: 19, icon: GrOracle, label: 'Oracle', className: 'text-7xl text-orange-500', variants: createIconVariants(3, 10) },
   { id: 20, icon: FaShopify, label: 'Shopify', className: 'text-7xl text-green-500', variants: createIconVariants(2.5, 15) },
+  { id: 21, icon: SiSupabase, label: 'Supabase', className: 'text-7xl text-green-500', variants: createIconVariants(2.5, 15) },
 ];

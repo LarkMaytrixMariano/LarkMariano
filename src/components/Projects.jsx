@@ -283,7 +283,7 @@ const Projects = () => {
   };
 
   return (
-    <section className="relative pb-24 pt-8">
+    <section id="projects" className="relative pb-24 pt-8 scroll-mt-8">
 
       {/* ── Custom cursor (desktop only) ── */}
       {!isMobile && (
