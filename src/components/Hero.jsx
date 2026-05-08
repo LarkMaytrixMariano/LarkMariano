@@ -1,6 +1,6 @@
 import { HERO_CONTENT } from '../constants'
 import { motion } from 'framer-motion'
-import Profile from "../assets/profilepic.jpg";
+import Profile from "../assets/new_profile.jpg";
 import CurvedLoop from '../utils/CurvedLoop';
 
 
