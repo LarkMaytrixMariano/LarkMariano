@@ -7,6 +7,8 @@ import krypt from "../assets/projects/krypt.png";
 import goodchips from "../assets/projects/goodchips.png";
 import POS from "../assets/projects/POS.png";
 import Flow from "../assets/projects/Pocket.png";
+import FIND from "../assets/projectVideos/find.webm";
+import FINDPIC from "../assets/projects/FINDPIC.png";
 import cert1 from "../assets/certifications/certification1.png";
 import cert2 from "../assets/certifications/certification2.png";
 import cert3 from "../assets/certifications/certification3.png";
@@ -318,6 +320,96 @@ export const PROJECTS = [
     technologies: ["React", "Tailwind", "Node.js", "Supabase", "Vercel"],
   },
 ];
+
+
+// Company projects can be added here with more details like role, duration, and specific contributions if needed.
+// ─────────────────────────────────────────────────────────────
+export const COMPANY_PROJECTS = [
+  // ── Completed / Production projects ──────────────────────
+  {
+    id: "finds",
+    title: "FINDS",
+    fullTitle: "Fisheries Intra Network Database System",
+    company: "Bureau of Fisheries and Aquatic Resources",
+    year: "2023 – 2024",
+    role: "Full Stack Java Developer",
+    status: "Internal · Production",   // "production" keyword → green badge
+    thumbnail: FINDPIC,
+    videoUrl: FIND,
+    purpose:
+      "FINDS is an enterprise-grade internal database system built to digitize and centralize fisheries data across all BFAR regional offices nationwide. It replaced a fragmented Excel-based workflow, enabling real-time data entry, validation, and reporting for over 200 concurrent government users.",
+    highlights: [
+      "Designed and implemented RESTful APIs using Spring Boot for core CRUD operations across 12 data modules.",
+      "Built JWT-based authentication and role-based access control for Admin, Regional, and View-only user tiers.",
+      "Developed a dynamic reporting module that generates Excel/PDF exports using Apache POI and iText.",
+      "Integrated Spring Data JPA with MySQL for efficient relational data handling and query optimization.",
+      "Collaborated with the Angular frontend team to deliver a responsive SPA dashboard with real-time data sync.",
+    ],
+    technologies: [
+      "Java", "Spring Boot", "Spring Security", "JWT",
+      "Spring Data JPA", "MySQL", "Angular", "TypeScript",
+      "Git", "GitHub", "Jenkins",
+    ],
+    type: "internal",
+  },
+  {
+    id: "eplan",
+    title: "E-Planning and Budget Monitoring System",
+    fullTitle: "Electronic Planning and Monitoring Management System",
+    company: "Bureau of Fisheries and Aquatic Resources",
+    year: "2024 – 2025",
+    role: "Full Stack Java Developer",
+    status: "Internal · Production",
+    thumbnail: "/company-projects/eplan-thumb.jpg",
+    videoUrl: "/company-projects/eplan-demo.mp4",
+    purpose:
+      "A government-grade e-planning platform designed to digitize BFAR's annual work and financial planning process. The system enables division heads and budget officers to submit, review, and approve operational plans electronically — eliminating paper-based workflows and reducing approval cycles from weeks to hours.",
+    highlights: [
+      "Architected the backend microservice layer using Spring Boot with a service-repository design pattern.",
+      "Built a multi-level approval workflow engine with configurable routing logic for hierarchical sign-off.",
+      "Implemented audit trail logging for all user actions, ensuring transparency and compliance requirements.",
+      "Created automated email notification system using JavaMail for approval status updates.",
+      "Performed load testing and performance tuning, achieving a 40% reduction in API response times.",
+    ],
+    technologies: [
+      "Java", "Spring Boot", "Spring Security", "JWT",
+      "MySQL", "Angular", "TypeScript", "GitHub",
+      "CI/CD", "Jenkins",
+    ],
+    type: "internal",
+  },
+
+  // ── Ongoing project ──────────────────────────────────────
+  {
+    id: "loan-system",
+    title: "Loan System",
+    fullTitle: "Enterprise Loan Management & Processing System",
+    company: "IBM Solutions Delivery Inc.",
+    year: "2025 – Present",
+    role: "Java Application Developer",
+    status: "Ongoing · In Development",  // "ongoing" keyword → amber badge + spinner
+    progress: 35,                         // 0–100 — shows animated progress bar
+    expectedCompletion: "Q4 2025",        // optional — shown in the notice banner
+    thumbnail: null,                      // set to a screenshot path when available
+    videoUrl: null,                       // no video yet — shows the "In Development" placeholder
+    purpose:
+      "An enterprise-grade loan management system being built for IBM's client portfolio. The platform handles end-to-end loan lifecycle management — from application submission and credit evaluation through approval workflows, disbursement, repayment scheduling, and collections — replacing the client's legacy manual processes.",
+    highlights: [
+      "Designing RESTful API layer using Spring Boot with layered architecture (Controller → Service → Repository).",
+      "Implementing a configurable loan product engine supporting multiple loan types, interest models, and repayment schemes.",
+      "Building a multi-stage approval workflow with role-based routing for loan officers, managers, and compliance teams.",
+      "Integrating Spring Security with JWT for secure, stateless authentication across web and mobile clients.",
+      "Planning automated amortization schedule generation and payment tracking with real-time account summaries.",
+    ],
+    technologies: [
+      "Java", "Spring Boot", "Spring Security", "JWT",
+      "Spring Data JPA", "MySQL", "JDBC", "REST API",
+      "Git", "GitHub", "CI/CD",
+    ],
+    type: "internal",
+  },
+];
+
 
 export const CONTACT = {
   address: "San Jose Del Monte Bulacan",
