@@ -385,11 +385,11 @@ export const COMPANY_PROJECTS = [
     title: "Loan System",
     fullTitle: "Enterprise Loan Management & Processing System",
     company: "IBM Solutions Delivery Inc.",
-    year: "2025 – Present",
+    year: "2026 – Present",
     role: "Java Application Developer",
     status: "Ongoing · In Development",  // "ongoing" keyword → amber badge + spinner
     progress: 35,                         // 0–100 — shows animated progress bar
-    expectedCompletion: "Q4 2025",        // optional — shown in the notice banner
+    expectedCompletion: "Q4 2026",        // optional — shown in the notice banner
     thumbnail: null,                      // set to a screenshot path when available
     videoUrl: null,                       // no video yet — shows the "In Development" placeholder
     purpose:
