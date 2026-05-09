@@ -2,7 +2,7 @@ import React, { useRef, useState, useEffect } from 'react';
 import { motion, useAnimationFrame, useMotionValue, AnimatePresence } from 'framer-motion';
 import { techIcons } from '../constants';
 
-/* ─── Single icon cell (desktop hover interaction) ──── */
+/* ─── Single icon cell (desktop hover interaction) ──── UPDATED v2*/
 const TechCell = ({ tech }) => {
   const [hovered, setHovered] = useState(false);
   const Icon = tech.icon;
