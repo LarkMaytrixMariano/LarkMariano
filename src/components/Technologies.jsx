@@ -1,53 +1,34 @@
-import React, { useState } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
+import React, { useRef, useState, useEffect } from 'react';
+import { motion, useAnimationFrame, useMotionValue, AnimatePresence } from 'framer-motion';
 import { techIcons } from '../constants';
 
-/* ── Stagger container ─────────────────────────────── */
-const container = {
-  hidden: {},
-  visible: { transition: { staggerChildren: 0.045, delayChildren: 0.1 } },
-};
-const iconItem = {
-  hidden: { opacity: 0, y: 24, scale: 0.88 },
-  visible: { opacity: 1, y: 0, scale: 1, transition: { duration: 0.5, ease: [0.22, 1, 0.36, 1] } },
-};
-
-/* ── Single icon cell ──────────────────────────────── */
+/* ─── Single icon cell (desktop hover interaction) ──── */
 const TechCell = ({ tech }) => {
   const [hovered, setHovered] = useState(false);
   const Icon = tech.icon;
 
   return (
-    <motion.div
-      variants={iconItem}
+    <div
       onMouseEnter={() => setHovered(true)}
       onMouseLeave={() => setHovered(false)}
-      className="relative flex flex-col items-center justify-center cursor-default"
-      style={{
-        width: 'clamp(72px, 10vw, 96px)',
-        height: 'clamp(72px, 10vw, 96px)',
-      }}
+      className="relative flex flex-col items-center justify-center cursor-default flex-shrink-0"
+      style={{ width: 88, height: 88 }}
     >
-      {/* Background circle on hover */}
+      {/* Hover bg */}
       <motion.div
         className="absolute inset-0 rounded-2xl"
-        animate={{
-          opacity: hovered ? 1 : 0,
-          scale: hovered ? 1 : 0.85,
-        }}
-        transition={{ duration: 0.28, ease: [0.22, 1, 0.36, 1] }}
+        animate={{ opacity: hovered ? 1 : 0, scale: hovered ? 1 : 0.85 }}
+        transition={{ duration: 0.25, ease: [0.22, 1, 0.36, 1] }}
         style={{ background: 'rgba(128,128,128,0.07)', border: '1px solid rgba(128,128,128,0.15)' }}
       />
-
       {/* Icon */}
       <motion.div
         animate={{ y: hovered ? -4 : 0 }}
-        transition={{ duration: 0.3, ease: [0.22, 1, 0.36, 1] }}
+        transition={{ duration: 0.28, ease: [0.22, 1, 0.36, 1] }}
         className="relative flex items-center justify-center"
       >
         <Icon className={tech.className} />
       </motion.div>
-
       {/* Label tooltip */}
       <AnimatePresence>
         {hovered && (
@@ -55,22 +36,120 @@ const TechCell = ({ tech }) => {
             initial={{ opacity: 0, y: 4 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: 4 }}
-            transition={{ duration: 0.2 }}
-            className="absolute -bottom-6 text-[10px] font-semibold tracking-wider uppercase whitespace-nowrap"
+            transition={{ duration: 0.18 }}
+            className="absolute -bottom-7 text-[10px] font-semibold tracking-wider uppercase whitespace-nowrap pointer-events-none"
             style={{ color: 'rgba(128,128,128,0.7)' }}
           >
             {tech.label}
           </motion.span>
         )}
       </AnimatePresence>
-    </motion.div>
+    </div>
   );
 };
 
-/* ── Main Component ────────────────────────────────── */
+/* ─── Mobile icon pill ───────────────────────────────── */
+const MobileCell = ({ tech }) => {
+  const Icon = tech.icon;
+  return (
+    <div className="flex flex-col items-center gap-2 flex-shrink-0" style={{ width: 72 }}>
+      <div
+        className="w-14 h-14 rounded-xl flex items-center justify-center"
+        style={{ background: 'rgba(128,128,128,0.06)', border: '1px solid rgba(128,128,128,0.12)' }}
+      >
+        <Icon className={tech.className} />
+      </div>
+      <span
+        className="text-[9px] font-semibold tracking-wider uppercase text-center leading-tight"
+        style={{ color: 'rgba(128,128,128,0.55)' }}
+      >
+        {tech.label}
+      </span>
+    </div>
+  );
+};
+
+/* ─── Infinite Marquee ───────────────────────────────────
+   Pure CSS-class approach:
+   - Duplicates the icon list 3× so the loop is seamless
+   - useAnimationFrame drives a motion value for buttery 60fps
+   - Pauses on hover (desktop)
+   - speed prop controls px/frame
+───────────────────────────────────────────────────────── */
+const InfiniteMarquee = ({ items, speed = 0.5, direction = 'left', renderItem, gap = 16 }) => {
+  const [paused, setPaused] = useState(false);
+  const [totalWidth, setTotalWidth] = useState(0);
+  const trackRef = useRef(null);
+  const x = useMotionValue(0);
+
+  // Measure the width of ONE set of items (before duplication)
+  useEffect(() => {
+    if (!trackRef.current) return;
+    // The track has 3 copies; one copy = 1/3 of scrollWidth
+    const measure = () => setTotalWidth(trackRef.current.scrollWidth / 3);
+    measure();
+    window.addEventListener('resize', measure);
+    return () => window.removeEventListener('resize', measure);
+  }, [items]);
+
+  useAnimationFrame(() => {
+    if (paused || totalWidth === 0) return;
+
+    const delta = direction === 'left' ? -speed : speed;
+    let next = x.get() + delta;
+
+    // Seamless loop: when we've scrolled one full copy, reset to 0
+    if (direction === 'left' && next <= -totalWidth) next = 0;
+    if (direction === 'right' && next >= 0) next = -totalWidth;
+
+    x.set(next);
+  });
+
+  // Triple the items for seamless infinite loop
+  const tripled = [...items, ...items, ...items];
+
+  return (
+    <div
+      className="overflow-hidden w-full relative"
+      onMouseEnter={() => setPaused(true)}
+      onMouseLeave={() => setPaused(false)}
+    >
+      {/* Left fade mask */}
+      <div
+        className="absolute left-0 top-0 bottom-0 z-10 pointer-events-none"
+        style={{
+          width: 80,
+          background: 'linear-gradient(to right, var(--mask-color, rgba(0,0,0,0)) 0%, transparent 100%)',
+        }}
+      />
+      {/* Right fade mask */}
+      <div
+        className="absolute right-0 top-0 bottom-0 z-10 pointer-events-none"
+        style={{
+          width: 80,
+          background: 'linear-gradient(to left, var(--mask-color, rgba(0,0,0,0)) 0%, transparent 100%)',
+        }}
+      />
+
+      <motion.div
+        ref={trackRef}
+        style={{ x, display: 'flex', gap, willChange: 'transform' }}
+        className="w-max py-4"
+      >
+        {tripled.map((item, i) => (
+          <div key={i} className="flex-shrink-0">
+            {renderItem(item, i)}
+          </div>
+        ))}
+      </motion.div>
+    </div>
+  );
+};
+
+/* ─── Main Component ─────────────────────────────────── */
 const Technologies = () => {
   return (
-    <section className="relative pb-32 pt-8">
+    <section className="relative pb-24 lg:pt-36 overflow-visible">
 
       {/* ── Section Header ── */}
       <motion.div
@@ -78,7 +157,7 @@ const Technologies = () => {
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
         transition={{ duration: 0.65, ease: [0.22, 1, 0.36, 1] }}
-        className="mb-12 md:mb-16 px-5 sm:px-8 lg:px-16 flex items-end justify-between pb-5 md:pb-6 lg:pt-36"
+        className="mb-12 md:mb-16 px-5 sm:px-8 lg:px-16 flex items-end justify-between pb-5 md:pb-6"
         style={{ borderBottom: '1px solid rgba(128,128,128,0.18)' }}
       >
         <div>
@@ -97,59 +176,60 @@ const Technologies = () => {
         </span>
       </motion.div>
 
-      {/* ── Marquee-style scrolling row on mobile / wrap grid on desktop ── */}
-      <div className="px-5 sm:px-8 lg:px-16">
+      {/* ── Marquee — Desktop (row 1 → left, row 2 → right) ── */}
+      <motion.div
+        initial={{ opacity: 0 }}
+        whileInView={{ opacity: 1 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
+        className="hidden sm:block mb-6"
+      >
+        {/* Row 1 — scrolls left */}
+        <InfiniteMarquee
+          items={techIcons}
+          speed={0.45}
+          direction="left"
+          gap={12}
+          renderItem={(tech) => <TechCell tech={tech} />}
+        />
+        {/* Row 2 — scrolls right (offset start for visual variety) */}
+        <InfiniteMarquee
+          items={[...techIcons].reverse()}
+          speed={0.38}
+          direction="right"
+          gap={12}
+          renderItem={(tech) => <TechCell tech={tech} />}
+        />
+      </motion.div>
 
-        {/* Desktop: centered wrap grid */}
-        <motion.div
-          variants={container}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, margin: '-60px' }}
-          className="hidden sm:flex flex-wrap justify-center gap-x-4 gap-y-10 lg:gap-x-6 lg:gap-y-12"
-          style={{ paddingBottom: '1.5rem' }}
-        >
-          {techIcons.map((tech) => (
-            <TechCell key={tech.id} tech={tech} />
-          ))}
-        </motion.div>
+      {/* ── Marquee — Mobile (single row, slightly faster) ── */}
+      <motion.div
+        initial={{ opacity: 0 }}
+        whileInView={{ opacity: 1 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.8 }}
+        className="sm:hidden mb-4"
+      >
+        <InfiniteMarquee
+          items={techIcons}
+          speed={0.6}
+          direction="left"
+          gap={10}
+          renderItem={(tech) => <MobileCell tech={tech} />}
+        />
+      </motion.div>
 
-        {/* Mobile: horizontal scroll strip */}
-        <div className="sm:hidden overflow-x-auto pb-6" style={{ scrollbarWidth: 'none' }}>
-          <motion.div
-            variants={container}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true }}
-            className="flex gap-4 w-max px-1"
-          >
-            {techIcons.map((tech) => {
-              const Icon = tech.icon;
-              return (
-                <motion.div
-                  key={tech.id}
-                  variants={iconItem}
-                  className="flex flex-col items-center gap-2 flex-shrink-0"
-                  style={{ width: 64 }}
-                >
-                  <div
-                    className="w-14 h-14 rounded-xl flex items-center justify-center"
-                    style={{ background: 'rgba(128,128,128,0.06)', border: '1px solid rgba(128,128,128,0.12)' }}
-                  >
-                    <Icon className={tech.className} />
-                  </div>
-                  <span
-                    className="text-[9px] font-semibold tracking-wider uppercase text-center leading-tight"
-                    style={{ color: 'rgba(128,128,128,0.55)' }}
-                  >
-                    {tech.label}
-                  </span>
-                </motion.div>
-              );
-            })}
-          </motion.div>
-        </div>
-      </div>
+      {/* ── Pause hint ── */}
+      <motion.p
+        initial={{ opacity: 0 }}
+        whileInView={{ opacity: 1 }}
+        viewport={{ once: true }}
+        transition={{ delay: 0.6, duration: 0.5 }}
+        className="hidden sm:block text-center text-[10px] tracking-widest uppercase mb-10"
+        style={{ color: 'rgba(128,128,128,0.3)' }}
+      >
+        Hover to pause
+      </motion.p>
 
       {/* ── Bottom count strip ── */}
       <motion.div
@@ -157,7 +237,7 @@ const Technologies = () => {
         whileInView={{ opacity: 1 }}
         viewport={{ once: true }}
         transition={{ delay: 0.5, duration: 0.6 }}
-        className="mt-12 px-5 sm:px-8 lg:px-16 flex items-center gap-6"
+        className="mt-6 px-5 sm:px-8 lg:px-16 flex items-center gap-6"
         style={{ borderTop: '1px solid rgba(128,128,128,0.12)', paddingTop: '1.5rem' }}
       >
         <p className="text-xs" style={{ color: 'rgba(128,128,128,0.4)' }}>

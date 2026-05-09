@@ -354,14 +354,14 @@ export const COMPANY_PROJECTS = [
   },
   {
     id: "eplan",
-    title: "E-Planning and Budget Monitoring System",
+    title: "EPMS",
     fullTitle: "Electronic Planning and Monitoring Management System",
     company: "Bureau of Fisheries and Aquatic Resources",
     year: "2024 – 2025",
     role: "Full Stack Java Developer",
     status: "Internal · Production",
-    thumbnail: "/company-projects/eplan-thumb.jpg",
-    videoUrl: "/company-projects/eplan-demo.mp4",
+    thumbnail: null,                      // set to a screenshot path when available
+    videoUrl: null,   
     purpose:
       "A government-grade e-planning platform designed to digitize BFAR's annual work and financial planning process. The system enables division heads and budget officers to submit, review, and approve operational plans electronically — eliminating paper-based workflows and reducing approval cycles from weeks to hours.",
     highlights: [
