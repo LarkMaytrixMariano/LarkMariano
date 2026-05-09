@@ -4,7 +4,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { COMPANY_PROJECTS } from '../constants';
 import { projectTechIcons } from '../constants';
 
-/* ─── Icons ─────────────────────────────────────────────── */
+/* ─── Icons ─────────────────────────────────────────────── V1*/
 const ArrowIcon = ({ size = 16 }) => (
   <svg width={size} height={size} viewBox="0 0 20 20" fill="none" aria-hidden="true">
     <path d="M4 16L16 4M16 4H8M16 4V12" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
