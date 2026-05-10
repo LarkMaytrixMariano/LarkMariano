@@ -1,6 +1,7 @@
 import { HERO_CONTENT } from '../constants';
 import { motion, useMotionValue, useSpring, useTransform } from 'framer-motion';
-import Profile from '../assets/new_profile.jpg';
+import { Link } from 'react-router-dom';
+import Profile from '../assets/rick_profile.webp';
 import CurvedLoop from '../utils/CurvedLoop';
 import { useEffect, useRef, useState } from 'react';
 
@@ -144,15 +145,40 @@ const Hero = ({ darkMode }) => {
                 </span>
               </motion.a>
 
-              <motion.a
-                href="#projects"
-                className="group flex items-center gap-1.5 text-sm font-medium relative"
+              <motion.button
+                onClick={() =>
+                  document.getElementById('projects')?.scrollIntoView({ behavior: 'smooth', block: 'start' })
+                }
+                className="group flex items-center gap-1.5 text-sm font-medium relative bg-transparent border-0 cursor-pointer"
                 style={{ color: 'rgba(128,128,128,0.7)' }}
                 whileHover={{ color: 'rgba(128,128,128,1)' }}
               >
                 View Work
                 <span className="transition-transform duration-300 group-hover:translate-x-0.5">→</span>
-              </motion.a>
+              </motion.button>
+
+              <Link
+                to="/about"
+                className="group flex items-center gap-1.5 text-sm font-medium relative"
+                style={{ color: 'rgba(128,128,128,0.7)' }}
+              >
+                <span className="relative">
+                  About Me
+                  <span
+                    className="absolute -bottom-px left-0 h-px w-full origin-right scale-x-0 group-hover:scale-x-100 group-hover:origin-left transition-transform duration-500"
+                    style={{ background: 'currentColor' }}
+                  />
+                </span>
+                <motion.span
+                  whileHover={{ x: 2, y: -2 }}
+                  transition={{ duration: 0.2 }}
+                  className="inline-flex"
+                >
+                  <svg width="13" height="13" viewBox="0 0 20 20" fill="none" aria-hidden="true">
+                    <path d="M4 16L16 4M16 4H8M16 4V12" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+                  </svg>
+                </motion.span>
+              </Link>
             </motion.div>
           </motion.div>
 

@@ -7,6 +7,7 @@ import Experience from './components/Experience';
 import Contact from './components/Contact';
 import Certification from './components/Certification';
 import CompanyProjectDetail from './components/CompanyProjectDetail';
+import AboutMe from './components/AboutMe';
 import React, { useEffect, useRef, useState } from 'react';
 import { FiSun, FiMoon } from 'react-icons/fi';
 
@@ -160,6 +161,10 @@ const App = () => {
           <Route
             path="/company-project/:id"
             element={<CompanyProjectDetail darkMode={darkMode} />}
+          />
+          <Route
+            path="/about"
+            element={<AboutMe darkMode={darkMode} />}
           />
         </Routes>
       </div>

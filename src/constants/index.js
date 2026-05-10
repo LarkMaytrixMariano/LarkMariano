@@ -16,6 +16,14 @@ import cert4 from "../assets/certifications/certification4.png";
 import cert5 from "../assets/certifications/certification5.png";
 import cert6 from "../assets/certifications/certification6.png";
 import cert7 from "../assets/certifications/certification7.png";
+import PIC1 from "../assets/about/pic_1.png";
+import PIC2 from "../assets/about/pic_2.png";
+import PIC3 from "../assets/about/pic_3.png";
+import PIC4 from "../assets/about/pic_4.png";
+import PIC5 from "../assets/about/pic_5.png";
+import PIC6 from "../assets/about/pic_6.png";
+
+
 
 
 
@@ -479,3 +487,82 @@ export const techIcons = [
   { id: 20, icon: FaShopify, label: 'Shopify', className: 'text-7xl text-green-500', variants: createIconVariants(2.5, 15) },
   { id: 21, icon: SiSupabase, label: 'Supabase', className: 'text-7xl text-green-500', variants: createIconVariants(2.5, 15) },
 ];
+
+
+//About me Data
+
+// ─────────────────────────────────────────────────────────────
+// ADD THIS TO YOUR constants.js
+// ─────────────────────────────────────────────────────────────
+
+export const ABOUT_DATA = {
+  // ── Identity ───────────────────────────────────────────────
+  name: "Lark Maytrix Mariano",
+  nickname: "Lark",
+  role: "Full Stack Java Developer",
+  location: "San Jose Del Monte Bulacan, Philippines",
+  email: "marianolark@gmail.com",
+  birth: "1998",
+  nationality: "Filipino",
+
+  // ── Long-form bio (shown in the intro section) ─────────────
+  bio: [
+    "I'm a results-driven Full Stack Java Developer and Software Engineer with over 5 years of hands-on experience designing, building, and maintaining scalable enterprise applications.",
+    "My core stack revolves around Java and Spring Boot on the backend — crafting clean REST APIs, implementing secure authentication flows, and architecting microservices that hold up under real-world pressure. On the frontend, I'm comfortable in React, Angular, and Vue, bridging the gap between server logic and the user interface.",
+    "I've had the privilege of shipping production systems for government agencies and enterprise clients — from fisheries management platforms to planning tools used by hundreds of concurrent users. I take pride in writing maintainable code and collaborating closely with cross-functional teams.",
+  ],
+
+  // ── Fun facts / personality ────────────────────────────────
+  funFacts: [
+    { emoji: "☕", label: "Coffee-fueled", detail: "Can't start a sprint without an iced coffee. It's a non-negotiable." },
+    { emoji: "🎮", label: "Gamer at Heart", detail: "MMORPG and strategy games — the closest thing to algorithm thinking with fun." },
+    { emoji: "🎵", label: "Music Listener", detail: "Any fucking Music! Anything hype when debugging." },
+    { emoji: "📚", label: "Always Learning", detail: "Currently exploring cloud architecture, Docker, and system design patterns." },
+    { emoji: "🏍️", label: "Bike Lover", detail: "Enthusiast of cycling and outdoor adventures." },
+    { emoji: "🌙", label: "Night Owl", detail: "Peak productivity hits somewhere between 10 PM and 2 AM." },
+  ],
+
+  // ── Hobbies ────────────────────────────────────────────────
+  hobbies: [
+    { label: "Gaming",         icon: "🎮", description: "MMOs, strategy, and the occasional RPG rabbit hole." },
+    { label: "Coffee",         icon: "☕", description: "Brewing and tasting — iced americano is the move." },
+    { label: "Music",          icon: "🎵", description: "Any fucking Music! Anything hype when debugging." },
+    { label: "Coding",         icon: "💻", description: "Building side projects and exploring new frameworks." },
+    { label: "Reading",        icon: "📖", description: "Tech articles, system design, and the occasional novel." },
+    { label: "Travelling",     icon: "✈️", description: "Exploring new places and experiencing different cultures." },
+  ],
+
+  // ── Values / how I work ────────────────────────────────────
+  values: [
+    { title: "Clean Code",        body: "Readability and maintainability over cleverness. Future-me should understand it without a comment." },
+    { title: "Ownership",         body: "I own my work end to end — from design discussions to production deployments and post-release monitoring." },
+    { title: "Collaboration",     body: "The best solutions come from open dialogue. I work closely with QA, UI/UX, and DevOps to ship quality." },
+    { title: "Continuous Growth", body: "The tech landscape never stops evolving. Neither do I — there's always something new to learn and apply." },
+  ],
+
+  // ── Timeline / life moments ────────────────────────────────
+  timeline: [
+    { year: "1998",      label: "Born in the Philippines",        detail: "Grew up in Bulacan City." },
+    { year: "2016",      label: "Started College",                detail: "Enrolled in a BS Information Technology program." },
+    { year: "2019",      label: "Graduated",                      detail: "Finished BS Information Technology." },
+    { year: "2020",      label: "First Dev Role",                 detail: "Database Administrator at Land Transportation Office." },
+    { year: "2023",      label: "Full Stack Java Developer",      detail: "Joined BFAR, building enterprise systems in Java & Spring Boot." },
+    { year: "2026",      label: "Java Application Developer",     detail: "Now at IBM Solutions Delivery Inc., building enterprise solutions." },
+  ],
+
+  // ── Photos (replace paths with your actual images) ─────────
+  photos: [
+    { src: PIC1, caption: "Beach Photo", aspect: "portrait"   },
+    { src: PIC2, caption: "Traveling", aspect: "landscape" },
+    { src: PIC3, caption: "Gym Photo",   aspect: "square"    },
+    { src: PIC5, caption: "Rides",   aspect: "portrait"  },
+  ],
+
+  // ── Currently ── (sidebar live panel) ─────────────────────
+  currently: {
+    reading:  "Atomic Habits by James Clear",
+    watching:  "War Dogs (2016) - A true story about arms dealers in the Iraq war.",
+    building: "Loan System for Japan Bank @ IBM",
+    learning: "Docker & Kubernetes",
+  },
+};
